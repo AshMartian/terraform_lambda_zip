@@ -16,4 +16,4 @@ else
   PROJECT_HASH=$(find $PYTHON_PROJECT -type f -not -iname requirements.txt | sort | cpio -o --quiet | shasum -a 256 | cut -d " " -f 1)
 fi
 echo "$PROJECT_HASH"
-jq -n --arg sha "$PROJECT_HASH" '{"sha": $sha}'
+jq -n --arg sha "$PROJECT_HASH" '{"sha": "$sha"}'
