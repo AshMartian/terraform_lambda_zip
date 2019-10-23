@@ -5,7 +5,7 @@
 
 set -e
 
-WORK_DIR="${TMPDIR}/${2}"
+WORK_DIR="${TMPDIR}${2}"
 echo "INFO: Attempting to make temporary directory $WORK_DIR"
 # TODO: Is this the best way of expressing the "is the variable null"?
 if [ "$TMPDIR " == " " ]; then
