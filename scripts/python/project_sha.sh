@@ -15,5 +15,5 @@ else
   >&2 echo "DEBUG: Using find | sort to identify python project"
   PROJECT_HASH=$(find $PYTHON_PROJECT -type f -not -iname requirements.txt | sort | cpio -o --quiet | shasum -a 256 | cut -d " " -f 1)
 fi
-
+echo "$PROJECT_HASH"
 jq -n --arg sha "$PROJECT_HASH" '{"sha": $sha}'
