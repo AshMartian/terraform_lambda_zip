@@ -2,7 +2,7 @@
 set -e
 
 eval "$(jq -r '@sh "NAME=\(.name) DEPENDENCIES_FILE=\(.modules_file)"')"
-
+echo "From dependencies: $DEPENDENCIES_FILE"
 if [ "$DEPENDENCIES_FILE" != "null" ]; then
   current_sha=$(shasum -a 256 "${DEPENDENCIES_FILE}" | cut -d " " -f 1)
   
