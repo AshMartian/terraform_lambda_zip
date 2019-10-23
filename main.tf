@@ -23,6 +23,9 @@ data "null_data_source" "engine" {
 # the payload
 
 data "external" "dependencies_sha" {
+  triggers = {
+    build_number = "${timestamp()}"
+  }
   program = ["bash", "${path.module}/scripts/dependencies_sha.sh"]
 
   query = {
@@ -36,6 +39,9 @@ data "external" "dependencies_sha" {
 # If it has, we need to rebuild the project
 
 data "external" "project_sha" {
+  triggers = {
+    build_number = "${timestamp()}"
+  }
   program = ["bash", "${path.module}/scripts/${data.null_data_source.engine.outputs["engine"]}/project_sha.sh"]
 
   query = {
