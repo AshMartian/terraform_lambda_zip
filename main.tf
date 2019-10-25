@@ -98,7 +98,7 @@ resource "null_resource" "build_payload" {
       PAYLOAD_RUNTIME = var.runtime
       PROJECT_PATH    = var.project_path
       PROJECT_SHA     = data.external.project_sha.result["sha"]
-      WORK_SHA        = data.external.project_sha.result["sha"]
+      WORK_SHA        = data.external.dependencies_sha.result["sha"]
       OUTPUT_PATH     = var.output_path
       FILENAME        = "${var.name}_${data.external.payload_exists.result["identifier"]}_payload.zip"
     }
