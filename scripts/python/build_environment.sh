@@ -45,7 +45,7 @@ PYENV="command pyenv"
 MAJOR_VERSION=$(echo $PYTHON_RUNTIME | sed 's/python//')
 
 VERSIONS=$(${PYENV} versions --bare | grep -e "$MAJOR_VERSION" | grep -e "[0-9]\.[0-9]\.[0-9]" | awk 'BEGIN { FS="/"; } {print $1}' |  uniq | sort -r )
-
+TEST_VERSIONS=$(${PYENV} versions --bare)
 PYENV_ROOT=$(${PYENV} root)
 
 # Expand the VERSIONS string into a fully-fledged array
@@ -55,7 +55,7 @@ for version in $VERSIONS; do
   break
 done
 
-echo "INFO: using python version $VERSION"
+echo "INFO: using python version $VERSION ($VERSIONS, $MAJOR_VERSION, $PYTHON_RUNTIME, $TEST_VERSIONS)"
 # Versions should be an array now
 
 # pyenv shell $VERSION
