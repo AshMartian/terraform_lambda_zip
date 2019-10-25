@@ -126,7 +126,7 @@ resource "null_resource" "build_dependencies" {
       PROJECT_PATH      = var.project_path
       RUNTIME           = var.runtime
       DEPENDENCIES_FILE = var.dependencies_file != "" ? var.dependencies_file : "null"
-      WORK_SHA          = data.external.project_sha.result["sha"]
+      WORK_SHA          = data.external.dependencies_sha.result["sha"]
       CUSTOM_COMMANDS   = local.custom["install"]
     }
   }
