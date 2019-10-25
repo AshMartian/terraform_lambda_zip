@@ -71,7 +71,7 @@ resource "null_resource" "make_project_work_dir" {
   }
 
   provisioner "local-exec" {
-    command = "${path.module}/scripts/mktmp.sh project ${data.external.project_sha.result["sha"]}"
+    command = "${path.module}/scripts/mktmp.sh project ${data.external.dependencies_sha.result["sha"]}"
   }
 }
 
