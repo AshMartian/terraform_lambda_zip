@@ -39,7 +39,7 @@ fi
 # executable, but does not require `eval "$(penv init -)"` to have been
 # run. If it has, however, this will still work by ensuring we run the
 # executable, not the shell function.
-PYENV="command pyenv"
+PYENV="pyenv"
 
 #eval "$(pyenv init -)"
 MAJOR_VERSION=$(echo $PYTHON_RUNTIME | sed 's/python//')
