@@ -26,7 +26,7 @@ data "external" "dependencies_sha" {
   program = ["bash", "${path.module}/scripts/dependencies_sha.sh"]
 
   query = {
-    dependencies_file = local.dependencies_file != "" ? local.dependencies_file : "null"
+    dependencies_file = var.dependencies_file != "" ? var.dependencies_file : "null"
     name              = var.name
   }
   # returns 1 result, a sha
